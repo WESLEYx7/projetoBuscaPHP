@@ -1,18 +1,13 @@
-<?php 
+<?php
 
-if(!isset($_GET['nome_livro'])) {
+include("conectar.php");
+
+if (!isset($_GET['nome_livro'])) {
     header("Location: index.php");
+    exit;
 }
 
-$nome = "%" .trim($_GET['nome_livro'])."%";
-
-$dbh = new PDO('mysql:host=127.0.0.1;dbname=bancolivros', 'root', '');
-
-$sth = $dbh->prepare('SELECT * FROM `livros` WHERE `nome` LIKE :nome');
-$sth->bindParam(':nome', $nome, PDO::PARAM_STR);
-$sth->execute(); // Executar a consulta
-
-$resultados = $sth->fetchAll(PDO::FETCH_ASSOC);
+$nome = "%" . trim($_GET['nome_livro']) . "%";
 
 ?>
 
@@ -21,23 +16,22 @@ $resultados = $sth->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Resultados da Busca</title>
 </head>
 <body>
     <h2>Resultado da Busca</h2>
 
-    <?php
-        if (count($resultados)) {
-            foreach($resultados as $Resultado) {
-?>                
-            <label><?php echo $Resultado['id']; ?> - <?php echo $Resultado['nome']; ?></label>
-            <br>
-            <?php
-            }} else {
-            ?>
-            <label>Não foram encontrados resultados pelo termo buscado.</label>
-            <?php
-            }
-    ?>
+    <table>
+        <tr>
+            <td>Código</td>
+            <td>Título</td>
+            <td>Autor</td>
+            <td>Ano</td>
+            <td>Preço</td>
+            <td>Quantidade</td>
+            <td>Tipo</td>
+        </tr>
+
+
 </body>
 </html>

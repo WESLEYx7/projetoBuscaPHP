@@ -10,8 +10,8 @@
     <header>
         <h1>Modelo</h1>
         <form action="">
-            <label id='labelBuscarLivro' for="">Buscar Livro</label>
-            <input type="text">
+            <label id='labelBuscarLivro'>Buscar Livro</label>
+            <input name="nome_livro" type="text">
         </form>
     </header>
 
