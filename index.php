@@ -9,14 +9,16 @@
 <body>
     <header>
         <h1>Modelo</h1>
-        <form action="busca.php" method="get">
-            <label id='labelBuscarLivro' for="nome_livro">Buscar Livro</label>
-            <input id="nome_livro" name="nome_livro" type="text">
-        </form>
+        <div class="buscarLivro">
+            <label id='labelBuscarLivro'>Buscar Livro</label><br>
+            <form id="formBuscarLivro" action="busca.php" method="get">
+                <button id="nomeLivro" name="nome_livro">Clique Aqui</button>
+            </form>
+        </div>
     </header>
 
     <!-- Section para Cadastro de Livros -->
-    <section id='principal'>
+    <div id='principal'>
         <div id='divCadastroLivro'>  
             <form id='formCadastro' action="" method="post">
                 <h2>Cadastrar Livro</h2>
@@ -26,9 +28,23 @@
                 
                     <label class='labelCadastroLivro' for="nomeAutor">Nome do Autor</label>
                     <input id="nomeAutor" class='inputCadastroLivro' type="text">
+
+                    <label class='labelCadastroLivro' for="nomeAutor">Ano de Publicação</label>
+                    <input id="anoPublicacao" class='inputCadastroLivro' type="text">
+
+                    <label class='labelCadastroLivro' for="nomeAutor">Preço</label>
+                    <input id="preco" class='inputCadastroLivro' type="text">
+
+                    <label class='labelCadastroLivro' for="nomeAutor">Quantidade</label>
+                    <input id="quantidade" class='inputCadastroLivro' type="text">
+
+                    <label class='labelCadastroLivro' for="nomeAutor">Tipo</label>
+                    <input id="tipo" class='inputCadastroLivro' type="text">
+
+                    
                 </div>
             </form>
         </div>
-    </section>
+    </div>
 </body>
 </html>
