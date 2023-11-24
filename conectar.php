@@ -14,6 +14,11 @@ try {
     exit;
 }
 
+$queryEditora = $ligacao->prepare("SELECT * FROM editora");
+$queryEditora->execute();
+$resultadosEditora = $queryEditora->fetchAll(PDO::FETCH_ASSOC);
+print_r($resultadosEditora);
+
 // Preparar e executar a consulta
 $query = $ligacao->prepare("SELECT * FROM acervo");
 $query->execute();

@@ -1,0 +1,8 @@
+td {
+    border: solid 2pt;
+    padding: 15pt;
+}
+
+table {
+    display: flex;
+}
