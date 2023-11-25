@@ -13,6 +13,36 @@ header {
     justify-content: space-between;
     background-color: rgb(84, 84, 228);
     border-radius: 6pt;
-    position: fixed;
     text-align: center;
+}
+
+form {
+    margin-top: 50pt;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    color: white;
+}
+
+label {
+    font-size: 13pt;
+    font-weight: 600;
+}
+
+input, button {
+    padding: 13pt;
+    border-radius: 8pt;
+    margin-bottom: 15pt;
+    width: 200pt;
+}
+
+#botaoAtualizar {
+    color: white;
+    background-color: green;
+    cursor: pointer;
+    font-weight: 600;
 }

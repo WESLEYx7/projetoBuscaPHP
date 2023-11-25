@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Modelo</h1>
+        <h1>Home</h1>
         <div id="divBucar">
             <form action="./livroPesquisado.php" method="post">
                 <label id="labelBuscar">Buscar Livro</label>
@@ -23,7 +23,7 @@
         </div>
     </header>
 
-    <!-- Section para Cadastro de Livros -->
+    <!--Cadastro de Livros-->
     <div id='principal'>
         <div id='divCadastroLivro'>  
 <!-- Formulário para cadastrar livros -->

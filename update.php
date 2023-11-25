@@ -32,11 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $novoPreco = $_POST['novoPreco'];
     $novaQuantidade = $_POST['novaQuantidade'];
     $novoTipo = $_POST['novoTipo'];
+    $novoNomeEditora = $_POST['novoNomeEditora'];
 
     // Comando SQL para atualizar os dados do livro
     $queryAtualizacao = "UPDATE acervo SET titulo = ?, autor = ?, ano = ?, preco = ?, quantidade = ?, tipo = ? WHERE id = ?";
     $stmtAtualizacao = $ligacao->prepare($queryAtualizacao);
     $stmtAtualizacao->execute([$novoTitulo, $novoAutor, $novoAno, $novoPreco, $novaQuantidade, $novoTipo, $idLivro]);
+
 
     // Redireciona de volta para a página de resultados da busca
     header("Location: busca.php");
@@ -55,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
     <header>
-        
+        <h2>Update Livros</h2>
     </header>
 
     <form action="./update.php?id=<?= $idLivro ?>" method="post">
@@ -77,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="novoTipo">Novo Tipo:</label>
         <input type="text" name="novoTipo" value="<?= $livro['tipo']; ?>" required>
 
-        <button type="submit">Atualizar</button>
+        <button id="botaoAtualizar" type="submit">Atualizar</button>
     </form>
 
 </body>
