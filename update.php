@@ -1,5 +1,4 @@
 <?php
-
 include("conectar.php");
 
 // Verifique se o ID foi passado como parâmetro
@@ -24,7 +23,7 @@ if (!$livro) {
     exit;
 }
 
-//
+// Se o formulário for enviado (postado), atualize os dados no banco de dados
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Coleta os dados do formulário
     $novoTitulo = $_POST['novoTitulo'];
@@ -34,23 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $novaQuantidade = $_POST['novaQuantidade'];
     $novoTipo = $_POST['novoTipo'];
 
-    //
-    $queryAtualizacao = "UPDATE acervo SET titulo = :titulo, autor = :autor, ano = :ano, preco = :preco, quantidade = :quantidade, tipo = :tipo WHERE id = :id";
+    // Comando SQL para atualizar os dados do livro
+    $queryAtualizacao = "UPDATE acervo SET titulo = ?, autor = ?, ano = ?, preco = ?, quantidade = ?, tipo = ? WHERE id = ?";
     $stmtAtualizacao = $ligacao->prepare($queryAtualizacao);
-    $stmtAtualizacao->bindParam(':titulo', $novoTitulo, PDO::PARAM_STR);
-    $stmtAtualizacao->bindParam(':autor', $novoAutor, PDO::PARAM_STR);
-    $stmtAtualizacao->bindParam(':ano', $novoAno, PDO::PARAM_STR);
-    $stmtAtualizacao->bindParam(':preco', $novoPreco, PDO::PARAM_STR);
-    $stmtAtualizacao->bindParam(':quantidade', $novaQuantidade, PDO::PARAM_INT);
-    $stmtAtualizacao->bindParam(':tipo', $novoTipo, PDO::PARAM_STR);
-    $stmtAtualizacao->bindParam(':id', $idLivro, PDO::PARAM_INT);
-    $stmtAtualizacao->execute();
+    $stmtAtualizacao->execute([$novoTitulo, $novoAutor, $novoAno, $novoPreco, $novaQuantidade, $novoTipo, $idLivro]);
 
     // Redireciona de volta para a página de resultados da busca
-    header("Location: resultados.php?nome_livro=" . urlencode($_GET['nome_livro']));
+    header("Location: busca.php");
     exit;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -59,30 +50,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atualizar Livro</title>
-    <link rel="stylesheet" href="styleBusca.css">
+    <link rel="stylesheet" href="styleUpdate.css">
 </head>
 <body>
 
-    <h2>Atualizar Livro</h2>
+    <header>
+        
+    </header>
 
-    <form action="./busca.php" method="post">
+    <form action="./update.php?id=<?= $idLivro ?>" method="post">
         <label for="novoTitulo">Novo Título:</label>
-        <input type="text" id="novoTitulo" name="novoTitulo" value="<?= $livro['titulo']; ?>" required>
+        <input type="text" name="novoTitulo" value="<?= $livro['titulo']; ?>" required>
 
         <label for="novoAutor">Novo Autor:</label>
-        <input type="text" id="novoAutor" name="novoAutor" value="<?= $livro['autor']; ?>" required>
+        <input type="text" name="novoAutor" value="<?= $livro['autor']; ?>" required>
 
         <label for="novoAno">Novo Ano:</label>
-        <input type="text" id="novoAno" name="novoAno" value="<?= $livro['ano']; ?>" required>
+        <input type="text" name="novoAno" value="<?= $livro['ano']; ?>" required>
 
         <label for="novoPreco">Novo Preço:</label>
-        <input type="text" id="novoPreco" name="novoPreco" value="<?= $livro['preco']; ?>" required>
+        <input type="text" name="novoPreco" value="<?= $livro['preco']; ?>" required>
 
         <label for="novaQuantidade">Nova Quantidade:</label>
-        <input type="text" id="novaQuantidade" name="novaQuantidade" value="<?= $livro['quantidade']; ?>" required>
+        <input type="text" name="novaQuantidade" value="<?= $livro['quantidade']; ?>" required>
 
         <label for="novoTipo">Novo Tipo:</label>
-        <input type="text" id="novoTipo" name="novoTipo" value="<?= $livro['tipo']; ?>" required>
+        <input type="text" name="novoTipo" value="<?= $livro['tipo']; ?>" required>
 
         <button type="submit">Atualizar</button>
     </form>

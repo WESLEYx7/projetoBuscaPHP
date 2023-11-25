@@ -45,11 +45,10 @@ try {
 </head>
 <body>
 
-        <?php foreach ($resultadosEditora as $editora) {
-        echo "ID: " . $editora['id'] . ", Nome: " . $editora['nome'] . "<br>";
-        }?>
-
-    <h2>Resultado da Busca</h2>
+    <header>
+        <h2>Resultado da Busca</h2>
+    </header>
+    
 
     <div class="tabela-container">
         <table class="tabelaAcervo">

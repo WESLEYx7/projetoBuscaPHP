@@ -18,7 +18,7 @@ CREATE TABLE `editora` (
 );
 
 -- Código usado para inserir acervo
-INSERT INTO acervo ( idEditora, titulo, autor, ano, preco, quantidade, tipo) VALUES (
+INSERT INTO acervo (idEditora, titulo, autor, ano, preco, quantidade, tipo) VALUES (
     1, 
     'Harry Potter', 
     'george orwell', 
@@ -39,4 +39,4 @@ INSERT INTO acervo ( idEditora, titulo, autor, ano, preco, quantidade, tipo) VAL
 );
 
 -- Código usado para inserir editora
-INSERT INTO editora (id, nome) VALUES ('Editora Rocco');
+INSERT INTO editora (nome) VALUES ('Editora Rocco');

@@ -1,0 +1,18 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace;
+}
+
+header {
+    height: 60pt;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(84, 84, 228);
+    border-radius: 6pt;
+    position: fixed;
+    text-align: center;
+}

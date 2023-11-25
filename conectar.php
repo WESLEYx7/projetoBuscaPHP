@@ -8,7 +8,7 @@ $pass = "";
 
 try {
     $ligacao = new PDO("mysql:dbname=$dbn;host=$host", $user, $pass);
-    echo "Conexão com o banco de dados " . $dbn . " com sucesso";
+    //echo "Conexão com o banco de dados " . $dbn . " com sucesso";
 } catch (PDOException $e) {
     echo "Erro de conexão " . $e->getMessage();
     exit;
