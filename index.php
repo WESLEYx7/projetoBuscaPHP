@@ -10,9 +10,9 @@
     <header>
         <h1>Modelo</h1>
         <div id="divBucar">
-            <label id="labelBuscar">Buscar Livro</label>
             <form action="./livroPesquisado.php" method="post">
-               <button class="botaoBuscarLivro">Buscar</button> 
+                <label id="labelBuscar">Buscar Livro</label>
+               <input type="text" placeholder="Buscar" name="inputBuscarLivro"> 
             </form>
         </div>
         <div class="buscarLivro">
