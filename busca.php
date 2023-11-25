@@ -75,7 +75,7 @@ try {
                         <td><?= $livro['preco']; ?></td>
                         <td><?= $livro['quantidade']; ?></td>
                         <td><?= $livro['tipo']; ?></td>
-                        <td><a href="./update.php">Alterar</a></td>
+                        <td><a href="update.php?id=<?= $livro['id']; ?>">Alterar</a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
