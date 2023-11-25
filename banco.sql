@@ -7,7 +7,9 @@ CREATE TABLE `acervo` (
     preco DOUBLE, 
     quantidade INT, 
     tipo INT, 
-FOREIGN KEY (idEditora) REFERENCES editora(id) );
+    FOREIGN KEY (idEditora) 
+    REFERENCES editora(id)
+);
 
 
 CREATE TABLE `editora` (
@@ -19,12 +21,22 @@ CREATE TABLE `editora` (
 INSERT INTO acervo ( idEditora, titulo, autor, ano, preco, quantidade, tipo) VALUES (
     1, 
     'Harry Potter', 
-    'J.K', 
-    1995, 
-    25.95, 
-    1000, 
-    1
+    'george orwell', 
+    1945, 
+    47.95, 
+    200, 
+    2
+);
+
+INSERT INTO acervo ( idEditora, titulo, autor, ano, preco, quantidade, tipo) VALUES (
+    4, 
+    'Teste', 
+    'Testando', 
+    2023, 
+    75.43, 
+    10, 
+    3
 );
 
 -- Código usado para inserir editora
-INSERT INTO editora (id, nome) VALUES (1, ' Editora Rocco');
+INSERT INTO editora (id, nome) VALUES ('Editora Rocco');

@@ -9,10 +9,16 @@
 <body>
     <header>
         <h1>Modelo</h1>
+        <div id="divBucar">
+            <label id="labelBuscar">Buscar Livro</label>
+            <form action="./livroPesquisado.php" method="post">
+               <button class="botaoBuscarLivro">Buscar</button> 
+            </form>
+        </div>
         <div class="buscarLivro">
-            <label id='labelBuscarLivro'>Buscar Livro</label><br>
+            <label id='labelBuscarLivro'>Listar Livros</label><br>
             <form id="formBuscarLivro" action="busca.php" method="get">
-                <button id="nomeLivro" name="nome_livro">Clique Aqui</button>
+                <button class="botaoBuscarLivro" name="nome_livro">Clique Aqui</button>
             </form>
         </div>
     </header>
@@ -20,31 +26,36 @@
     <!-- Section para Cadastro de Livros -->
     <div id='principal'>
         <div id='divCadastroLivro'>  
-            <form id='formCadastro' action="" method="post">
-                <h2>Cadastrar Livro</h2>
-                <div class="divInputCadastro">
-                    <label class='labelCadastroLivro' for="nomeLivro">Nome do Livro</label>
-                    <input id="nomeLivro" class='inputCadastroLivro' type='text'>
-                
-                    <label class='labelCadastroLivro' for="nomeAutor">Nome do Autor</label>
-                    <input id="nomeAutor" class='inputCadastroLivro' type="text">
+<!-- Formulário para cadastrar livros -->
+<div id='divCadastroLivro'>  
+    <form id='formCadastro' action="cadastrar.php" method="post">
+        <h2>Cadastrar Livro</h2>
+        <div class="divInputCadastro">
+            <label class='labelCadastroLivro' for="nomeLivro">Nome do Livro</label>
+            <input id="inputNomeLivro" class='inputCadastroLivro' type='text' name="nomeLivro">
+        
+            <label class='labelCadastroLivro' for="nomeAutor">Nome do Autor</label>
+            <input id="nomeAutor" class='inputCadastroLivro' type="text" name="nomeAutor">
 
-                    <label class='labelCadastroLivro' for="nomeAutor">Ano de Publicação</label>
-                    <input id="anoPublicacao" class='inputCadastroLivro' type="text">
+            <label class='labelCadastroLivro' for="anoPublicacao">Ano de Publicação</label>
+            <input id="anoPublicacao" class='inputCadastroLivro' type="text" name="anoPublicacao">
 
-                    <label class='labelCadastroLivro' for="nomeAutor">Preço</label>
-                    <input id="preco" class='inputCadastroLivro' type="text">
+            <label class='labelCadastroLivro' for="preco">Preço</label>
+            <input id="preco" class='inputCadastroLivro' type="text" name="preco">
 
-                    <label class='labelCadastroLivro' for="nomeAutor">Quantidade</label>
-                    <input id="quantidade" class='inputCadastroLivro' type="text">
+            <label class='labelCadastroLivro' for="quantidade">Quantidade</label>
+            <input id="quantidade" class='inputCadastroLivro' type="text" name="quantidade">
 
-                    <label class='labelCadastroLivro' for="nomeAutor">Tipo</label>
-                    <input id="tipo" class='inputCadastroLivro' type="text">
+            <label class='labelCadastroLivro' for="tipo">Tipo</label>
+            <input id="tipo" class='inputCadastroLivro' type="text" name="tipo">
 
-                    
-                </div>
-            </form>
+            <label class='labelCadastroLivro' for="nomeEditora">Nome Editora</label>
+            <input id="nomeEditora" class='inputCadastroLivro' type="text" name="nomeEditora">
+
+            <input id="botaoEnviar" type="submit" value="Cadastrar">
         </div>
-    </div>
+    </form>
+</div>
+</div>
 </body>
 </html>

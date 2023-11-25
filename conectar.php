@@ -2,7 +2,7 @@
 
 // Dados de acesso
 $host = "127.0.0.1";
-$dbn  = "bancolivros";
+$dbn  = "aprendendo_php";
 $user = "root";
 $pass = "";
 
@@ -17,7 +17,7 @@ try {
 $queryEditora = $ligacao->prepare("SELECT * FROM editora");
 $queryEditora->execute();
 $resultadosEditora = $queryEditora->fetchAll(PDO::FETCH_ASSOC);
-print_r($resultadosEditora);
+//print_r($resultadosEditora);
 
 // Preparar e executar a consulta
 $query = $ligacao->prepare("SELECT * FROM acervo");
@@ -27,6 +27,6 @@ $query->execute();
 $resultados = $query->fetchAll(PDO::FETCH_ASSOC);
 
 // Exibir os resultados (apenas para fins de teste)
-print_r($resultados);
+//print_r($resultados);
 
 ?>

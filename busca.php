@@ -51,45 +51,53 @@ try {
 
     <h2>Resultado da Busca</h2>
 
-    <table>
-        <div class="tabelaAcervo">
-            <tr>
-                <td>Código</td>
-                <td>Título</td>
-                <td>Autor</td>
-                <td>Ano</td>
-                <td>Preço</td>
-                <td>Quantidade</td>
-                <td>Tipo</td>
-            </tr>
-
-            <?php foreach ($resultados as $livro): ?>
+    <div class="tabela-container">
+        <table class="tabelaAcervo">
+            <thead>
                 <tr>
-                    <td><?= $livro['id']; ?></td>
-                    <td><?= $livro['titulo']; ?></td>
-                    <td><?= $livro['autor']; ?></td>
-                    <td><?= $livro['ano']; ?></td>
-                    <td><?= $livro['preco']; ?></td>
-                    <td><?= $livro['quantidade']; ?></td>
-                    <td><?= $livro['tipo']; ?></td>
+                    <th>Código</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Ano</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Tipo</th>
+                    <th>Alterar</th>
                 </tr>
-            <?php endforeach; ?>
-        </div>
+            </thead>
+            <tbody>
+                <?php foreach ($resultados as $livro): ?>
+                    <tr>
+                        <td><?= $livro['id']; ?></td>
+                        <td><?= $livro['titulo']; ?></td>
+                        <td><?= $livro['autor']; ?></td>
+                        <td><?= $livro['ano']; ?></td>
+                        <td><?= $livro['preco']; ?></td>
+                        <td><?= $livro['quantidade']; ?></td>
+                        <td><?= $livro['tipo']; ?></td>
+                        <td><a href="./update.php">Alterar</a></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
 
-
-        <div class="tabelaEditora">
-            <tr>
-                <td>Código editora</td>
-                <td>Nome da editora</td>
-            </tr>
-
-            <?php foreach ($resultadosEditora as $editora): ?>
+        <table class="tabelaEditora">
+            <thead>
                 <tr>
-                    <td><?= $editora['id']; ?></td>
-                    <td><?= $editora['nome']; ?></td>
+                    <th>Código editora</th>
+                    <th>Nome da editora</th>
                 </tr>
-            <?php endforeach; ?>
-        </div>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($resultadoEditora as $editora): ?>
+                    <tr>
+                        <td><?= $editora['id']; ?></td>
+                        <td><?= $editora['nome']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
 </body>
 </html>
