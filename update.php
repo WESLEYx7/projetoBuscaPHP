@@ -1,31 +1,31 @@
 <?php
 include("conectar.php");
 
-// Verifique se o ID foi passado como parâmetro
+//Verifique se o ID foi passado como parâmetro
 if (!isset($_GET['id'])) {
     header("Location: index.php");
     exit;
 }
 
-// Obtém o ID do livro a ser atualizado
+//Obtém o ID do livro a ser atualizado
 $idLivro = $_GET['id'];
 
-// Comando para selecionar os dados do livro com base no ID
+//Comando para selecionar os dados do livro com base no ID
 $query = "SELECT * FROM acervo WHERE id = :id";
 $stmt = $ligacao->prepare($query);
 $stmt->bindParam(':id', $idLivro, PDO::PARAM_INT);
 $stmt->execute();
 $livro = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Verifica se o livro foi encontrado
+//Verifica se o livro foi encontrado
 if (!$livro) {
     echo "Livro não encontrado.";
     exit;
 }
 
-// Se o formulário for enviado (postado), atualize os dados no banco de dados
+//Se o formulário for enviado (postado), atualize os dados no banco de dados
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Coleta os dados do formulário
+    //Coleta os dados do formulário
     $novoTitulo = $_POST['novoTitulo'];
     $novoAutor = $_POST['novoAutor'];
     $novoAno = $_POST['novoAno'];
@@ -34,13 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $novoTipo = $_POST['novoTipo'];
     $novoNomeEditora = $_POST['novoNomeEditora'];
 
-    // Comando SQL para atualizar os dados do livro
+    //Comando para atualizar livro... Cada interrogação (?) vai receber as varíabeis
     $queryAtualizacao = "UPDATE acervo SET titulo = ?, autor = ?, ano = ?, preco = ?, quantidade = ?, tipo = ? WHERE id = ?";
     $stmtAtualizacao = $ligacao->prepare($queryAtualizacao);
     $stmtAtualizacao->execute([$novoTitulo, $novoAutor, $novoAno, $novoPreco, $novaQuantidade, $novoTipo, $idLivro]);
 
 
-    // Redireciona de volta para a página de resultados da busca
+    //Redireciona de volta para a página de resultados da busca
     header("Location: busca.php");
     exit;
 }

@@ -1,20 +1,22 @@
 <?php
 
+//Incluindo a conexão
 include("conectar.php");
 
+//Verificando se o campo buscado é verdadeiro... E retorna para o index
 if (!isset($_GET['nome_livro'])) {
     header("Location: index.php");
     exit;
 }
 
-
+//Psquisa pelo campo do input
 $nome = "%" . trim($_GET['nome_livro']) . "%";
 
-// Comando para selecionar todos os dados da tabela
+//Comando para selecionar todos os dados da tabela
 $query = "SELECT * FROM acervo WHERE titulo LIKE :nome";
 $queryEditora = "SELECT * FROM editora WHERE nome LIKE :nome";
 
-// Statements para evitar SQL Injection
+//Statements para evitar SQL Injection
 $stmt = $ligacao->prepare($query);
 $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
 $stmt->execute();
